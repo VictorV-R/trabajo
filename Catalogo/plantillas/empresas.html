@@ -1,0 +1,94 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de piel</title>
+    <link rel="stylesheet" href="{%static 'css/foundation.css' %}">
+    <link rel="stylesheet" href="{%static 'css/app.css'%}">
+    <link rel="stylesheet" href="{%static 'css/estilos.css'%}">
+  </head>
+  <body>
+ <!-- Start Top Bar -->
+<div class="title-bar" data-responsive-toggle="mainNavigation" data-hide-for="medium">
+  <div class="title-bar-left">
+    <button class="menu-icon" type="button" data-toggle="mainNavigation"></button>
+    <div class="title-bar-title">Menu</div>
+  </div>
+  <div class="title-bar-right">
+    Marketing Site
+  </div>
+</div>
+
+<div class="top-bar" id="mainNavigation">
+      <div class="top-bar-left">
+        <ul class="menu vertical medium-horizontal">
+          <li class="menu-text hide-for-small-only">Vanity-Catálogo </li>
+          <li><a href="/">Principal</a></li>
+          <li><a href="{%static '#ROSTRO' %}">Boca</a></li>
+ <li><a href="{%static '#' %}">Rostro</a></li>
+ <li><a href="{%static '#ROSTRO' %}> Pestañas</a></li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu vertical medium-horizontal">
+          <li><a href="{%static '#'%}"></a></li>
+          <li><a href="{%static '#'%}"></a></li>
+ <li><a href="(% static 'administrador.html'%}"></a></li>
+        </ul>
+      </div>
+    </div>
+<!-- End Top Bar -->
+<br>
+    <div class="row column text-center">
+      <h1><FONT FACE="VERDANA"><b>EMPRESAS</b></FONT></h1>
+      <hr>
+    </div>
+<br>
+<table border=1>
+<tr>
+<td>codigo_empresa</td>
+<td>nombre</td>
+</tr>
+{% for e in empresas %}
+<tr>
+<td>{{e.nombre}}</td>
+<td>{{e.codigo_empresa}}</td>
+</tr>
+{% endfor %}
+
+</table>
+<br>
+    <footer class="callout large secondary">
+      <article class="grid-container">
+      <div class="grid-x">
+        <div class="large-4 cell">
+          <P>/ LEGAL /</P>
+          <p>Condiciones de uso</p>
+		  <p>Política de privacidad</p>
+		  <p>Términos y condiciones</p>
+		  <p>Derechos ARCO</p>
+		  <p>Autorización para el envío de publicidad</p>
+        </h4>
+      </div>
+	  
+
+      <div class="large-3 large-offset-2 cell">
+        <ul class="menu vertical">
+          <li>Contáctanos</li>
+            <a href="{%static 'https://esika.tiendabelcorp.com/pe/?gclid=Cj0KCQjw-JyUBhCuARIsANUqQ_KoGK_GvHaB3m0zcwd8vtUCT_EhvqSzPQWYsDwYYKUriaHhcSKaD4YaAlTFEALw_wcB'%}" class="button expanded">Facebook</a>
+            <a href="{%static 'https://www.youtube.com/c/EsikaBelcorp'%}" class="button expanded">Youtube</a>
+            <a href="{%static 'https://www.instagram.com/esika.oficial/'%}" class="button expanded">Instragram</a>
+        </ul>
+      </div>
+      </article>
+    </footer>
+
+    <script src="{%static 'js/vendor/jquery.js'%}"></script>
+    <script src="{%static 'js/vendor/what-input.js'%}"></script>
+    <script src="{%static 'js/vendor/foundation.js'%}"></script>
+    <script src="{%static 'js/app.js'%}"></script>
+  </body>
+</html>

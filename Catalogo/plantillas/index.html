@@ -1,0 +1,236 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de piel</title>
+    <link rel="stylesheet" href="{%static 'css/foundation.css' %}">
+    <link rel="stylesheet" href="{%static 'css/app.css'%}">
+    <link rel="stylesheet" href="{%static 'css/estilos.css'%}">
+  </head>
+  <body>
+ <!-- Start Top Bar -->
+<div class="title-bar" data-responsive-toggle="mainNavigation" data-hide-for="medium">
+  <div class="title-bar-left">
+    <button class="menu-icon" type="button" data-toggle="mainNavigation"></button>
+    <div class="title-bar-title">Menu</div>
+  </div>
+  <div class="title-bar-right">
+    Marketing Site
+  </div>
+</div>
+
+<div class="top-bar" id="mainNavigation">
+      <div class="top-bar-left">
+        <ul class="menu vertical medium-horizontal">
+          <li class="menu-text hide-for-small-only">Vanity-Catálogo </li>
+          <li><a href="{%static '#' %}">Ojos</a></li>
+          <li><a href="{%static '#ROSTRO' %}">Boca</a></li>
+ <li><a href="{%static '#' %}">Rostro</a></li>
+ <li><a href="{%static '#ROSTRO' %}> Pestañas </a></li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu vertical medium-horizontal">
+          <li><a href="{%static '#'%}"></a></li>
+          <li><a href="{%static '#'%}"></a></li>
+ <li><a href="/empresas">Empresas</a></li>
+        </ul>
+      </div>
+    </div>
+<!-- End Top Bar -->
+<br>
+<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
+  <ul class="orbit-container">
+    <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+    <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+    <li class="is-active orbit-slide">
+      <img class="orbit-image" src="{%static 'Imagenes/lar1.jpg'%}" alt="Space">
+    </li>
+    <li class="orbit-slide">
+      <img class="orbit-image" src="{%static 'Imagenes/lar2.jpg'%}" alt="Space">
+    </li>
+    <li class="orbit-slide">
+      <img class="orbit-image" src="{%static 'Imagenes/lar3.jpg'%}" alt="Space">
+    </li>
+    <li class="orbit-slide">
+      <img class="orbit-image" src="{%static 'Imagenes/lar4.jpg'%}" alt="Space">
+    </li>
+  </ul>
+  <nav class="orbit-bullets">
+    <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+    <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+    <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+    <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+  </nav>
+</div>
+
+<br>
+    <div class="row column text-center">
+      <h1><FONT FACE="VERDANA"><b>Cuida tu belleza con Vanity</b></FONT></h1>
+      <hr>
+    </div>
+<br>
+<form action="" method="POST" name="miform">{% csrf_token %}
+  Buscar:
+  <input type="text" size="10" name="textNombre">
+  <input type="submit" name="enviar" value="enviar">
+</form>
+
+<article class="grid-container">
+	<br>
+	<div class="row column"id="MANOS">
+      <div class="callout primary">
+        <h3><center>MANOS</center></h3>
+      </div>
+    </div>
+	<br>
+    <div class="grid-x grid-margin-x small-up-2 medium-up-2 large-up-4">
+	{% for c in cosmeticos %}
+      <div class="cell">
+     
+        <a href="{%url 'detalle' c.codigo_cosmetico %}"><img src="{{ c.imagen.url }}"> ></a>
+      
+		<a href="{%url 'detalle' c.codigo_cosmetico %}"><h5><center>{{c.nombre | title }} - Stock : {{c.stock}}</center></h5> </a>
+        <p>S/.{{c.precio}}</p>
+        <a href="{%url 'detalle' c.codigo_cosmetico %}" class="button expanded">AGREGAR AL CARRITO</a>
+      </div>
+	{% endfor %}  
+      
+
+  
+    </div>
+
+    <hr>
+
+    <div class="row column" id="ROSTRO">
+      <div class="callout primary">
+        <h3><center>ROSTRO</center></h3>
+      </div>
+    </div>
+    <div class="grid-x grid-margin-x small-up-2 medium-up-2 large-up-4">
+      <div class="cell">
+		<a href="{%static 'detalle.html'%}"><img class="thumbnail" src="{%static 'Imagenes/imr1.jpeg'%}"></a>
+        <a href="{%static 'detalle.html'%}"><h5><center>BROCHAS</center></h5> </a>
+        <p>S/ 12.90</p>
+        <a href="{%static '#'%}" class="button expanded">AGREGAR AL CARRITO</a>
+      </div>
+      <div class="cell">
+        <a href="{%static 'detalle.html'%}"><img class="thumbnail" src="{%static 'Imagenes/imr2.jpeg'%}"></a>
+        <a href="{%static 'detalle.html'%}"><h5><center>Base LOREAL PARIS</center></h5> </a>
+        <p>S/ 43.90</p>
+        <a href="{%static '#'%}" class="button expanded">AGREGAR AL CARRITO</a>
+      </div>
+      <div class="cell">
+        <a href="{%static 'detalle.html'%}"><img class="thumbnail" src="{%static 'Imagenes/imr3.jpeg'%}"></a>
+        <a href="{%static 'detalle.html'%}"><h5><center>Polvo Compacto</center></h5> </a>
+        <p>S/ 73.90</p>
+        <a href="{%static '#'%}" class="button expanded">AGREGAR AL CARRITO</a>
+      </div>
+      <div class="cell">
+        <a href="{%static 'detalle.html'%}"><img class="thumbnail" src="{%static 'Imagenes/imr4.jpeg'%}"></a>
+        <a href="{%static 'detalle.html'%}"><h5><center>Delineador Maybelline</center></h5> </a>
+        <p>S/ 48.90</p>
+        <a href="{%static '#'%}" class="button expanded">AGREGAR AL CARRITO</a>
+      </div>
+	  
+    </div>
+
+    <hr>
+    <div class="row column" id="CUERPO">
+      <div class="callout primary">
+        <h3><center>CUERPO</center><h3>
+      </div>
+    </div>
+    <div class="grid-x grid-margin-x small-up-2 medium-up-2 large-up-4">
+      <div class="cell">
+		<a href="{%static 'detalle.html'%}"><img class="thumbnail" src="{%static 'Imagenes/c33.jpeg'%}"></a>
+        <a href="{%static 'detalle.html'%}"><h5><center>Crema NatureCare, 33.7 oz</center></h5></a>
+        <p>S/ 50.90</p>
+        <a href="#" class="button expanded">AGREGAR AL CARRITO</a>
+      </div>
+      <div class="cell">
+        <a href="{%static 'detalle.html'%}"><img class="thumbnail" src="{%static 'Imagenes/c41.jpeg'%}"></a>
+         <a href="{%static 'detalle.html'%}"><h5><center>Crema corporal NIVEA, 182 ml</center></h5></a>
+        <p>S/ 66.90</p>
+        <a href="{%static '#'%}" class="button expanded">AGREGAR AL CARRITO</a>
+      </div>
+      <div class="cell">
+        <a href="{%static 'detalle.html'%}"><img class="thumbnail" src="{%static 'Imagenes/c51.jpeg'%}"></a>
+         <a href="{%static 'detalle.html'%}"><h5><center>Crema corporal PORTUGAL 450 gr.</center></h5></a>
+        <p>S/ 50.90</p>
+        <a href="#" class="button expanded">AGREGAR AL CARRITO</a>
+      </div>
+      <div class="cell">
+        <a href="{%static 'detalle.html'%}"><img class="thumbnail" src="{%static 'Imagenes/c61.jpeg'%}"></a>
+         <a href="{%static 'detalle.html'%}"><h5><center>Crema concha Nacar GRISI 400 ml</center></h5></a>
+        <p>S/ 45.90</p>
+        <a href="{%static '#'%}" class="button expanded">AGREGAR AL CARRITO</a>
+      </div>
+	  
+	  
+  
+    </div>
+
+    <hr>
+
+</article>
+<br>
+    <footer class="callout large secondary">
+      <article class="grid-container">
+      <div class="grid-x">
+        <div class="large-4 cell">
+          <P>/ LEGAL /</P>
+          <p>Condiciones de uso</p>
+		  <p>Política de privacidad</p>
+		  <p>Términos y condiciones</p>
+		  <p>Derechos ARCO</p>
+		  <p>Autorización para el envío de publicidad</p>
+        </h4>
+      </div>
+	  
+{% if messages %}
+  <div class="row">
+  	{% for message in messages %}
+  	<div class="alert alert-{{ message.tags }}" role="alert">
+      	<p>{{ message }}</p>
+  	</div>
+  	{% endfor %}
+  </div>
+{% endif %}
+
+<form action="" method="post" name="miform">{% csrf_token %}
+  Codigo:
+  <input type="text" maxlength="10" size="10" name="codigo_usuario"><br>
+  Nombre:
+  <input type="text" maxlength="10" size="10" name="nombre"><br>
+  Sexo:
+  <input type="text" maxlength="10" size="10" name="sexo"><br>
+  Fecha de nacimiento:
+  <input type="date" name="fecha_nacimiento"><br> 
+  Direccion:
+  <input type="text" maxlength="10" size="10" name="direccion"><br>
+  Telefono:
+  <input type="text" maxlength="10" size="10" name="telefono"><br> 
+  <input type="submit" name="enviar" value="enviar">
+</form>
+
+      <div class="large-3 large-offset-2 cell">
+        <ul class="menu vertical">
+          <li>Contáctanos</li>
+            <a href="{%static 'https://esika.tiendabelcorp.com/pe/?gclid=Cj0KCQjw-JyUBhCuARIsANUqQ_KoGK_GvHaB3m0zcwd8vtUCT_EhvqSzPQWYsDwYYKUriaHhcSKaD4YaAlTFEALw_wcB'%}" class="button expanded">Facebook</a>
+            <a href="{%static 'https://www.youtube.com/c/EsikaBelcorp'%}" class="button expanded">Youtube</a>
+            <a href="{%static 'https://www.instagram.com/esika.oficial/'%}" class="button expanded">Instragram</a>
+        </ul>
+      </div>
+      </article>
+    </footer>
+
+    <script src="{%static 'js/vendor/jquery.js'%}"></script>
+    <script src="{%static 'js/vendor/what-input.js'%}"></script>
+    <script src="{%static 'js/vendor/foundation.js'%}"></script>
+    <script src="{%static 'js/app.js'%}"></script>
+  </body>
+</html>
